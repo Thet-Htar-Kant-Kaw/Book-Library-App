@@ -1,0 +1,137 @@
+/* Remove these lines */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* body {
+  font-family: Georgia, serif;
+  margin: 0;
+} */
+
+/* a {
+  text-decoration: none;
+} */
+
+/* .sidebar {
+  height: max-content;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+} */
+
+/* .card { */
+  /* width: 300px; */
+  /* margin: 20px; */
+  /* border: 1px solid #e3e3e3; */
+  /* border-radius: 8px; */
+  /* overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease; */
+/* } */
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; 
+  }
+
+  .sidebar {
+    height: max-content;
+    padding: 19px;
+    margin: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  } 
+  
+  .sidebar > a:hover {
+    color: #000;
+  }
+
+  .books {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .card-container > a {
+    text-decoration: none;
+    display: block;
+    padding: 2px 1px 1px 16px;
+  }
+  
+  
+  
+  .card:hover {
+    background-color: #f0f0f0;
+  }
+
+  .cardImg {
+    display: flex;
+    justify-content: center;
+    padding: 20px 40px 0 40px;
+  }
+  
+  .card img {
+    width: 80%;
+    height: 80%;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-content h2 {
+    margin-top: 0;
+  }
+  
+  .card-content p {
+    margin-bottom: 0;
+  }
+
+  .bookdetail-container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .bookdetail-card {
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bookdetail-container > a {
+    text-decoration: none;
+    display: block;
+    padding: 2px 1px 1px 16px;
+  }
+
+  .bookdetail-card img {
+    width: 30%;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .bookdetail-content {
+    margin: 0 20px;
+    width: 100%;
+  } */
+
+  
