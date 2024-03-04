@@ -8,7 +8,7 @@ import '../index.css'
 import { useSearch } from '../Context';
 
 export default function Category() {
-    const [searchParams, setSearchParams] = useState();
+    const { searchParams, setSearchParams } = useSearch() || {};
     const [categories, setCategories] = useState([]);
     const [bookDetails, setBookDetails] = useState([]);
     // const [displayedBooks, setDisplayedBooks] = useState()
@@ -100,7 +100,7 @@ export default function Category() {
                 <div className="books grid gap-4 grid-cols-3">
                     {/* <div className=""> */}
                     {currentItems?.map(book => (
-                        <div key={book.dataId} className="card-container">
+                        <div key={book.dataId} className="card-container max-w-sm rounded border border-gray-300 overflow-hidden shadow-md bg-white hover:shadow-lg transition duration-300">
                             <Link
                                 to={`/book/${book.dataId}`}
                                 // save book data at localstorage with onclick fun
@@ -109,7 +109,7 @@ export default function Category() {
                                     setShowBookDetails(!showBookDetails)
                                             }}
                             >
-                                <div className="card max-w-sm rounded border border-gray-300 overflow-hidden shadow-md bg-white hover:shadow-lg transition duration-300">
+                                {/* <div className="card max-w-sm rounded border border-gray-300 overflow-hidden shadow-md bg-white hover:shadow-lg transition duration-300"> */}
                                     <div className="cardImg w-full">
                                         <img src={book.coverImg} alt={book.title} />
                                     </div>                                
@@ -123,12 +123,11 @@ export default function Category() {
                                             <span>{book.fileSize}</span>
                                         </div>
                                     </div>
-                                </div>
+                                {/* </div> */}
                                 
                             </Link>
                         </div>
                     ))} 
-                    {/* </div>                               */}
                         
                 </div>
 

@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import catName from '../data/categories.txt'
+import { useSearch } from '../Context';
 
 export default function BookDetails() {
     const [bookDetails, setBookDetails] = useState([]);
+    const { searchParams, setSearchParams } = useSearch() || {};
 
     const [categories, setCategories] = useState([]);
     useEffect(() => {
@@ -23,16 +25,16 @@ export default function BookDetails() {
 
     return (
         <div className='container flex'>
-            <div className="sidebar">
+            <div className="sidebar bg-gray-200 h-full w-64 p-4 mx-4">
                 
                 {categories.map(category => (
                 <Link to={`${category.catLink}`}>
-                    <p value={category.catName}   
-                        onClick={() => setSearchParams(category.catName)} 
-                        className="cat-title"
+                    <button className="w-full py-2 px-4 text-left bg-white hover:bg-gray-100 rounded-md mb-2"
+                            value={category.catName}   
+                            onClick={() => setSearchParams(category.catName)}         
                     >
                         {category.catName}
-                    </p>
+                    </button>
                 </Link>
                 ))}
             </div>
