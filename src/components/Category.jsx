@@ -10,9 +10,9 @@ import { useSearch } from '../Context';
 export default function Category() {
     const { searchParams, setSearchParams } = useSearch() || {};
     const [categories, setCategories] = useState([]);
-    const [bookDetails, setBookDetails] = useState([]);
-    // const [displayedBooks, setDisplayedBooks] = useState()
+    const { bookDetails, setBookDetails } = useSearch() || {};
     const { displayedBooks, setDisplayedBooks } = useSearch() || {};
+    const { darkMode, setDarkMode } = useSearch() || {};
 
     const [showBookDetails, setShowBookDetails] = useState(false);
 
@@ -68,7 +68,6 @@ export default function Category() {
                 console.error('Error fetching the book details:', error);
             }
         }
-
         fetchBookDetails();
     }, []);    
 
@@ -82,13 +81,17 @@ export default function Category() {
     },[bookDetails, searchParams])   
 
     return (
-        <div className="container flex">
-            <div className="sidebar bg-gray-200 h-full w-64 p-4 mx-4">                
+        
+        <div className={`flex pt-4 pr-4 ${darkMode && 'bg-gray-900'}`}>
+            <div className={`sidebar h-full w-1/5 p-4 mx-4 border rounded-lg 
+            ${darkMode ? 'bg-gray-700 border-sky-200' : 'bg-gray-100 border-gray'}`}>                
                 {categories.map(category => (
                 <Link to={`${category.catLink}`}>
-                    <button className="w-full py-2 px-4 text-left bg-white hover:bg-gray-100 rounded-md mb-2"
-                            value={category.catName}   
-                            onClick={() => setSearchParams(category.catName)}         
+                    <button className={`w-full py-2 px-4 text-left border rounded-md mb-2 
+                    ${darkMode ? 'bg-gray-800 rounded-lg border border-sky-400 text-sky-400 hover:shadow-inner hover:shadow-blue-500' 
+                    : 'bg-slate-300 hover:border-indigo-400'}`}
+                    value={category.catName}   
+                    onClick={() => setSearchParams(category.catName)}         
                     >
                         {category.catName}
                     </button>
@@ -96,11 +99,15 @@ export default function Category() {
                 ))}
             </div>
 
-            <div className="sub-container flex flex-col">
+            <div className="sub-container w-4/5">
                 <div className="books grid gap-4 grid-cols-3">
                     {/* <div className=""> */}
                     {currentItems?.map(book => (
-                        <div key={book.dataId} className="card-container max-w-sm rounded border border-gray-300 overflow-hidden shadow-md bg-white hover:shadow-lg transition duration-300">
+                        <div key={book.dataId} 
+                        className={`card-container max-w-sm rounded border overflow-hidden shadow-md transition duration-300 
+                        ${darkMode ? 'bg-gray-800 rounded-lg border border-sky-200 text-sky-400 hover:border-sky-400 hover:shadow-lg hover:shadow-blue-600' 
+                        : 'hover:shadow-lg hover:border-indigo-400 hover:bg-indigo-200 border-gray-300 bg-white'}`}
+                        >
                             <Link
                                 to={`/book/${book.dataId}`}
                                 // save book data at localstorage with onclick fun
@@ -110,7 +117,7 @@ export default function Category() {
                                             }}
                             >
                                 {/* <div className="card max-w-sm rounded border border-gray-300 overflow-hidden shadow-md bg-white hover:shadow-lg transition duration-300"> */}
-                                    <div className="cardImg w-full">
+                                    <div className="cardImg mt-2 flex justify-center">
                                         <img src={book.coverImg} alt={book.title} />
                                     </div>                                
                                     <div className="card-content px-6 py-4">
@@ -131,7 +138,7 @@ export default function Category() {
                         
                 </div>
 
-                <div className="pagination flex justify-center">
+                <div className="pagination inline-flex justify-center">
 
                     <ReactPaginate
                         nextLabel="next >"

@@ -6,6 +6,8 @@ export const ContextProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [displayedBooks, setDisplayedBooks] = useState([]);
   const [searchParams, setSearchParams] = useState();
+  const [bookDetails, setBookDetails] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <SocketContext.Provider
@@ -16,6 +18,10 @@ export const ContextProvider = ({ children }) => {
         setDisplayedBooks,
         searchParams, 
         setSearchParams,
+        bookDetails, 
+        setBookDetails,
+        darkMode, 
+        setDarkMode,
       }}
     >
       {children}

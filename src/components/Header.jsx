@@ -9,7 +9,9 @@ const Header = () => {
   const [searchParams, setSearchParams] = useState();
   const { displayedBooks, setDisplayedBooks } = useSearch() || {};
   const { query, setQuery } = useSearch() || {};
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, setDarkMode } = useSearch() || {};
+
+  // console.log(useSearch);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -66,10 +68,14 @@ const Header = () => {
   return (
     
     <div>
-      <header className={`py-4 mb-4 ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'}`}>
+      <header className={`py-4 border-b ${darkMode ? 'bg-gray-800 border-sky-800' : 'bg-gray-100 border-gray'}`}>
         <div className="container mx-auto flex justify-between items-center">
-          <a className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>FreeLibrary</a>
-          <div className='flex items-center'>
+          <a className={`text-2xl font-bold 
+          ${darkMode ? 'text-sky-400' : 'text-gray-800'}`}
+          >
+            FreeLibrary
+          </a>
+          {/* <div> */}
             <input
               className={`px-4 py-2 rounded-md ${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-300 text-gray-800'}`}
               type="search" 
@@ -84,7 +90,7 @@ const Header = () => {
             >
               {darkMode ? 'Light Mode' : 'Dark Mode'}
             </button>
-          </div>
+          {/* </div> */}
           
         </div>
       </header>

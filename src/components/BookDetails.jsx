@@ -7,6 +7,7 @@ import { useSearch } from '../Context';
 export default function BookDetails() {
     const [bookDetails, setBookDetails] = useState([]);
     const { searchParams, setSearchParams } = useSearch() || {};
+    const { darkMode, setDarkMode } = useSearch() || {};
 
     const [categories, setCategories] = useState([]);
     useEffect(() => {
@@ -24,14 +25,16 @@ export default function BookDetails() {
     }, []);
 
     return (
-        <div className='container flex'>
-            <div className="sidebar bg-gray-200 h-full w-64 p-4 mx-4">
+        <div className={`flex pt-4 pr-4 ${darkMode && 'bg-gray-900'}`}>
+            <div className={`sidebar h-full w-1/5 p-4 mx-4 ${darkMode ? 'bg-gray-700 rounded-lg border border-sky-200' : 'bg-gray-100'}`}>                
                 
                 {categories.map(category => (
                 <Link to={`${category.catLink}`}>
-                    <button className="w-full py-2 px-4 text-left bg-white hover:bg-gray-100 rounded-md mb-2"
-                            value={category.catName}   
-                            onClick={() => setSearchParams(category.catName)}         
+                    <button className={`w-full py-2 px-4 text-left border rounded-md mb-2 
+                    ${darkMode ? 'bg-gray-800 rounded-lg border border-sky-400 text-sky-400 hover:shadow-inner hover:shadow-blue-500' 
+                    : 'bg-slate-300 hover:border-indigo-400'}`}
+                    value={category.catName}   
+                    onClick={() => setSearchParams(category.catName)}         
                     >
                         {category.catName}
                     </button>
