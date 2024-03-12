@@ -84,10 +84,6 @@ const Header = () => {
               value={query}
               onChange={handleInputChange}
             />
-            {/* <button
-              onClick={toggleDarkMode}
-              className={`px-4 py-2 mx-4 rounded-md ${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-300 text-gray-800'}`}
-            > */}
               {darkMode ? 
               <button
                 onClick={toggleDarkMode}
@@ -107,9 +103,6 @@ const Header = () => {
                 </svg>
               </button>
               }
-            {/* </button> */}
-          {/* </div> */}
-          
         </div>
       </header>
 

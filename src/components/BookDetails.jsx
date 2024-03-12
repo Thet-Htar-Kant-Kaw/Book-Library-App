@@ -51,7 +51,7 @@ export default function BookDetails() {
                             <img 
                                 src={bookDetails.coverImg} 
                                 alt={bookDetails.title} 
-                                className='w-48'
+                                className='w-48 mt-2 rounded-lg'
                             />
                             <div className={`bookdetail-content my-4 text-xl ${darkMode ? 'text-sky-400' : 'text-[#0f172a]'}`}>
                                 <h1 className='text-3xl font-bold'>{bookDetails.title}</h1>
@@ -66,20 +66,24 @@ export default function BookDetails() {
                                     <span>by </span>
                                     <span className="font-bold">{bookDetails.author}</span>
                                 </div>                                
-                                {/* <p className="book-author my-4 font-bold">by {bookDetails.author}</p> */}
                                 <div className='book-tags'>
                                     {bookDetails.tags?.map(tag => (
                                         <span>+ {tag} </span>
                                     ))
                                     }                                    
                                 </div>
+                                <button
+                                    type="submit"
+                                    className="px-6 inline-block py-3 w-full sm:w-fit rounded-full my-6 bg-sky-600 hover:bg-sky-500 text-white"
+                                >
+                                    Download
+                                </button>
                             </div>
                         </div>
                     </Link>
                 </div>
         ) : <h2>Loading...</h2> }
-        </div>
-        
+        </div>        
         
     )
     }
