@@ -88,8 +88,8 @@ export default function Category() {
                 {categories.map(category => (
                 <Link to={`${category.catLink}`}>
                     <button className={`w-full py-2 px-4 text-left border rounded-md mb-2 
-                    ${darkMode ? 'bg-gray-800 rounded-lg border border-sky-400 text-sky-400 hover:shadow-inner hover:shadow-blue-500' 
-                    : 'bg-slate-300 hover:border-indigo-400'}`}
+                    ${darkMode ? 'bg-gray-800 rounded-lg border border-sky-400 text-sky-400 hover:shadow-inner hover:shadow-blue-500 focus:shadow-inner focus:shadow-blue-500' 
+                    : 'bg-slate-300 hover:border-indigo-400 focus:border-indigo-400'}`}
                     value={category.catName}   
                     onClick={() => setSearchParams(category.catName)}         
                     >
@@ -138,30 +138,36 @@ export default function Category() {
                         
                 </div>
 
-                <div className="pagination inline-flex justify-center">
+                {/* <div className="pagination flex justify-center"> */}
 
                     <ReactPaginate
-                        nextLabel="next >"
+                        containerClassName="pagination mx-auto my-8 flex flex-row justify-center space-x-12"
+                        nextLabel={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                    </svg>
+                                }
                         onPageChange={handlePageClick}
                         pageRangeDisplayed={3}
                         marginPagesDisplayed={2}
                         pageCount={pageCount}
-                        previousLabel="< previous"
-                        pageClassName="page-item"
+                        previousLabel={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                                        </svg>
+                                    }
+                        pageClassName={`page-item ${darkMode ? 'page-item-dark' : 'page-item-light'}`}
                         pageLinkClassName="page-link"
-                        previousClassName="page-item"
+                        previousClassName={`page-item ${darkMode ? 'page-item-dark' : 'page-item-light'}`}
                         previousLinkClassName="page-link"
-                        nextClassName="page-item"
+                        nextClassName={`page-item ${darkMode ? 'page-item-dark' : 'page-item-light'}`}
                         nextLinkClassName="page-link"
                         breakLabel="..."
-                        breakClassName="page-item"
+                        breakClassName={`page-item ${darkMode ? 'page-item-dark' : 'page-item-light'}`}
                         breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
+                        activeClassName={`active ${darkMode ? 'active-dark' : 'active-light'}`}
                         renderOnZeroPageCount={null}
                     />
                 
-                </div>
+                {/* </div> */}
             </div>            
                 
         </div>

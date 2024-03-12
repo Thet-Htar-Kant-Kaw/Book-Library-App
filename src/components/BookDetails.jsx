@@ -42,23 +42,31 @@ export default function BookDetails() {
                 ))}
             </div>
             { bookDetails ? (
-            <div key={bookDetails.dataId} className="bookdetail-container">
+            <div key={bookDetails.dataId} className="mx-8">
                     <Link
                         to={`/book/${bookDetails.dataId}`}
                         // onClick={() => localStorage.getItem("selectedAbook", JSON.stringify(book))}
                     >
                         <div className="bookdetail-card">
-                            <img src={bookDetails.coverImg} alt={bookDetails.title} />
-                            <div className="bookdetail-content">
-                                <h1>{bookDetails.title}</h1>
-                                <div className="bookdetail-info">
+                            <img 
+                                src={bookDetails.coverImg} 
+                                alt={bookDetails.title} 
+                                className='w-48'
+                            />
+                            <div className={`bookdetail-content my-4 text-xl ${darkMode ? 'text-sky-400' : 'text-[#0f172a]'}`}>
+                                <h1 className='text-3xl font-bold'>{bookDetails.title}</h1>
+                                <div className="bookdetail-info mt-4">
                                     <span>{bookDetails.pageCount}</span>
                                     <span> | </span>
                                     <span>{bookDetails.pub_year}</span>
                                     <span> | </span>
                                     <span>{bookDetails.fileSize}</span>
                                 </div>
-                                <p className="book-author">by {bookDetails.author}</p>
+                                <div className='book-author my-4'>
+                                    <span>by </span>
+                                    <span className="font-bold">{bookDetails.author}</span>
+                                </div>                                
+                                {/* <p className="book-author my-4 font-bold">by {bookDetails.author}</p> */}
                                 <div className='book-tags'>
                                     {bookDetails.tags?.map(tag => (
                                         <span>+ {tag} </span>
